@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* ── Design System Tokens (mj_ds.html) ── */
+@theme {
+  /* Dark backgrounds */
+  --color-ds-950:    #080a0c;
+  --color-ds-900:    #0f1114;
+  --color-ds-800:    #1a1d22;
+  --color-ds-700:    #282c33;
+  --color-ds-border: #3d4350;
+
+  /* Text shades */
+  --color-ds-500:  #5a6172;
+  --color-ds-400:  #7e8796;
+  --color-ds-300:  #a8b0bc;
+  --color-ds-200:  #ced3da;
+  --color-ds-100:  #e8eaed;
+  --color-ds-050:  #f5f6f7;
+  --color-ds-000:  #ffffff;
+
+  /* Brand — laranja-500 PRIMARY */
+  --color-ds-orange:      #ea8e25;
+  --color-ds-orange-h:    #f0a44f;
+  --color-ds-orange-dark: #d97e0a;
+
+  /* Brand — azul-500 */
+  --color-ds-blue:   #116aae;
+  --color-ds-blue-h: #2d82c4;
+
+  /* Fonts */
+  --font-display: var(--font-bebas);
+  --font-body:    var(--font-inter);
+}
+
+:root { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #080a0c;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Shock Floor layer textures ── */
+.sf-surface {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+}
+
+.sf-core {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.sf-shock {
+  background-image:
+    radial-gradient(ellipse 14px 10px at 16px 50%, rgba(234,142,37,0.45) 100%, transparent 100%),
+    radial-gradient(ellipse 14px 10px at 48px 50%, rgba(234,142,37,0.45) 100%, transparent 100%),
+    radial-gradient(ellipse 14px 10px at 80px 50%, rgba(234,142,37,0.45) 100%, transparent 100%);
+  background-size: 96px 30px;
+  background-repeat: repeat;
+}
+
+.sf-drain {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 2px,
+    transparent 2px,
+    transparent 12px
+  );
+}
+
+/* ── Navigation ── */
+.nav-shadow { box-shadow: 0 1px 24px rgba(0,0,0,0.7); }
+
+/* ── Product card hover ── */
+.product-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+}
+
+/* ── WhatsApp label ── */
+.wa-label {
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.35s ease;
+  white-space: nowrap;
+}
+.wa-btn:hover .wa-label { max-width: 220px; }
+
+/* ── SF Layer interactive ── */
+.sf-layer {
+  transition: flex 0.35s ease;
+  flex: 1;
+}
+.sf-layer:hover { flex: 2.2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-layer { transition: none; }
+  .product-card { transition: none; }
+  .wa-label { transition: none; }
+}
